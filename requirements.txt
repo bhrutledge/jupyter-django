@@ -1,0 +1,7 @@
+# -r /path/to/django/project/requirements.txt
+django_extensions
+jupyter
+pydot
+graphviz
+pandas
+matplotlib
