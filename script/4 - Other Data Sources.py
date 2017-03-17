@@ -1,8 +1,11 @@
 
 # coding: utf-8
 
+# # Other Data Sources
+
 # In[1]:
 
+from django.core.management import call_command
 from django.db import connection
 from graphviz import Source
 from IPython.display import Image
@@ -13,18 +16,25 @@ pd.options.display.max_rows = 10
 
 # ## Using SQL
 
+# Another way to get the output of a management command:
+
 # In[2]:
 
-dot = get_ipython().getoutput('/Users/brian/Code/jahhills.com/hth/manage.py graph_models music 2>/dev/null')
-Source(dot.n)
+get_ipython().run_cell_magic('capture', 'dot', "call_command('graph_models', 'music')")
 
 
 # In[3]:
+
+Source(dot)
+
+
+# In[4]:
 
 songs = pd.read_sql("""
 SELECT
     id AS song_id
     , title AS song_title
+    , track AS release_track
     , release_id
 FROM music_song
 """, connection)
@@ -32,7 +42,7 @@ FROM music_song
 songs.head()
 
 
-# In[4]:
+# In[5]:
 
 releases = pd.read_sql("""
 SELECT
@@ -45,42 +55,44 @@ FROM music_release
 releases.head()
 
 
-# In[5]:
+# Join the `DataFrame`s on the common `release_id` column:
+
+# In[6]:
 
 song_releases = songs.merge(releases).set_index('song_id')
 song_releases.head()
 
 
-# In[6]:
+# In[7]:
 
 release_tracks = song_releases.groupby('release_title')['song_title'].count()
 release_tracks
 
 
-# In[7]:
+# In[8]:
 
 release_tracks.describe()
 
 
-# ## CSV Import/Export
+# ## Using CSVs
 
-# In[8]:
+# In[9]:
 
 song_releases.to_csv('song-releases.csv')
 get_ipython().system('head song-releases.csv')
 
 
-# In[9]:
+# In[10]:
 
 pd.read_csv('song-releases.csv').head()
 
 
-# ## Other Stuff
+# ## Many others
 # 
-# - "File > Download as"
-# - GitHub rendering
-# - Best practices
-# - Dashboard
+# - Excel
+# - HTML tables
+# - JSON
+# - Web APIs via [requests](http://docs.python-requests.org/en/master/)
 
 # In[ ]:
 

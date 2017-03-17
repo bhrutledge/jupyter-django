@@ -11789,6 +11789,7 @@ div#notebook {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="What-do-our-models-look-like?">What do our models look like?<a class="anchor-link" href="#What-do-our-models-look-like?">&#182;</a></h2><p>Let's use some of IPython's magic to find out.</p>
+<p>Thanks to <a href="https://django-extensions.readthedocs.io/en/latest/shell_plus.html"><code>manage.py shell_plus</code></a>, all of our models have already been imported.</p>
 
 </div>
 </div>
@@ -11798,7 +11799,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Thanks to <code>manage.py shell_plus --notebook</code>, all of our models have already been imported.</p>
+<p>View the source code for a model:</p>
 
 </div>
 </div>
@@ -11815,6 +11816,16 @@ div#notebook {
 </div>
 </div>
 
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>View the whole file:</p>
+
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -11874,34 +11885,20 @@ div#notebook {
 </div>
 
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># We still need to import non-model classes...</span>
-<span class="kn">from</span> <span class="nn">core.models</span> <span class="k">import</span> <span class="n">PublishedModel</span>
-<span class="o">%</span><span class="k">pycat</span> {getfile(PublishedModel)}
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <hr>
+<p>View the contents of the app directory:</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">os</span> <span class="k">import</span> <span class="n">path</span>
@@ -11914,7 +11911,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>ls -l <span class="o">{</span>path.dirname<span class="o">(</span>gig_file<span class="o">)}</span>
@@ -11932,15 +11929,20 @@ div#notebook {
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>total 32
--rw-r--r--   1 brian  staff     0 Mar  2 01:31 __init__.py
-drwxr-xr-x  12 brian  staff   408 Mar 15 21:32 <span class="ansi-blue-fg">__pycache__</span>
--rw-r--r--   1 brian  staff   599 Mar  2 01:31 admin.py
-drwxr-xr-x  12 brian  staff   408 Mar  2 01:33 <span class="ansi-blue-fg">migrations</span>
--rw-r--r--   1 brian  staff  1801 Mar  2 01:31 models.py
-drwxr-xr-x   8 brian  staff   272 Mar  2 01:33 <span class="ansi-blue-fg">tests</span>
--rw-r--r--   1 brian  staff   151 Mar  2 01:31 urls.py
--rw-r--r--   1 brian  staff   201 Mar  2 01:31 views.py
+<pre>total 72
+-rw-r--r--   1 brian  staff     0 Aug 14  2014 __init__.py
+-rw-r--r--   1 brian  staff   139 Nov  5 11:10 __init__.pyc
+drwxr-xr-x  17 brian  staff   578 Mar 14 00:16 <span class="ansi-blue-fg">__pycache__</span>
+-rw-r--r--   1 brian  staff   599 Aug 11  2016 admin.py
+-rw-r--r--   1 brian  staff  1326 Nov  5 11:10 admin.pyc
+drwxr-xr-x  12 brian  staff   408 Aug 11  2016 <span class="ansi-blue-fg">migrations</span>
+-rw-r--r--   1 brian  staff  1801 Aug 11  2016 models.py
+-rw-r--r--   1 brian  staff  3430 Nov  5 11:10 models.pyc
+drwxr-xr-x   8 brian  staff   272 Aug 11  2016 <span class="ansi-blue-fg">tests</span>
+-rw-r--r--   1 brian  staff   151 Feb 14  2016 urls.py
+-rw-r--r--   1 brian  staff   355 Nov  5 11:10 urls.pyc
+-rw-r--r--   1 brian  staff   201 Feb 14  2016 views.py
+-rw-r--r--   1 brian  staff   592 Nov  5 11:10 views.pyc
 </pre>
 </div>
 </div>
@@ -11959,9 +11961,19 @@ drwxr-xr-x   8 brian  staff   272 Mar  2 01:33 <span class="ansi-blue-fg">tests<
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>View the output of the <a href="https://django-extensions.readthedocs.io/en/latest/graph_models.html"><code>graph_models</code></a> command from Django Extensions:</p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">graphviz</span> <span class="k">import</span> <span class="n">Source</span>
@@ -11975,10 +11987,10 @@ drwxr-xr-x   8 brian  staff   272 Mar  2 01:33 <span class="ansi-blue-fg">tests<
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>/Users/brian/Code/jahhills.com/hth/manage.py graph_models music news shows -o models.png  2&gt;/dev/null
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>manage.py graph_models music news shows -o models.png  2&gt;/dev/null
 <span class="n">Image</span><span class="p">(</span><span class="s1">&#39;models.png&#39;</span><span class="p">)</span>
 </pre></div>
 
@@ -11991,7 +12003,7 @@ drwxr-xr-x   8 brian  staff   272 Mar  2 01:33 <span class="ansi-blue-fg">tests<
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[9]:</div>
+<div class="prompt output_prompt">Out[8]:</div>
 
 
 
@@ -15175,12 +15187,22 @@ JEACJEACJOCmBP4fBFhFbsNJUtoAAAAASUVORK5CYII=
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Alternatively, capture the output, and render it as SVG:</p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dot</span> <span class="o">=</span> <span class="o">!</span>/Users/brian/Code/jahhills.com/hth/manage.py graph_models shows 2&gt;/dev/null
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dot</span> <span class="o">=</span> <span class="o">!</span>manage.py graph_models shows 2&gt;/dev/null
 <span class="n">Source</span><span class="p">(</span><span class="n">dot</span><span class="o">.</span><span class="n">n</span><span class="p">)</span>
 </pre></div>
 
@@ -15193,7 +15215,7 @@ JEACJEACJOCmBP4fBFhFbsNJUtoAAAAASUVORK5CYII=
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[10]:</div>
+<div class="prompt output_prompt">Out[9]:</div>
 
 
 <div class="output_svg output_subarea output_execute_result">
@@ -15372,14 +15394,14 @@ JEACJEACJOCmBP4fBFhFbsNJUtoAAAAASUVORK5CYII=
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>To learn more about IPython's magic functions:</p>
+<p>Learn more about IPython's magic functions:</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">quickref</span>
@@ -15396,22 +15418,13 @@ JEACJEACJOCmBP4fBFhFbsNJUtoAAAAASUVORK5CYII=
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <hr>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Answering-questions">Answering questions<a class="anchor-link" href="#Answering-questions">&#182;</a></h2><h3 id="How-often-do-we-play-gigs?">How often do we play gigs?<a class="anchor-link" href="#How-often-do-we-play-gigs?">&#182;</a></h3>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">gigs</span> <span class="o">=</span> <span class="n">Gig</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">published</span><span class="p">()</span><span class="o">.</span><span class="n">past</span><span class="p">()</span>
@@ -15427,7 +15440,7 @@ JEACJEACJOCmBP4fBFhFbsNJUtoAAAAASUVORK5CYII=
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[12]:</div>
+<div class="prompt output_prompt">Out[11]:</div>
 
 
 
@@ -15452,7 +15465,7 @@ JEACJEACJOCmBP4fBFhFbsNJUtoAAAAASUVORK5CYII=
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="p">[</span><span class="n">gig</span> <span class="k">for</span> <span class="n">gig</span> <span class="ow">in</span> <span class="n">gigs</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">date__year</span><span class="o">=</span><span class="s1">&#39;2016&#39;</span><span class="p">)]</span>
@@ -15467,7 +15480,7 @@ JEACJEACJOCmBP4fBFhFbsNJUtoAAAAASUVORK5CYII=
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[13]:</div>
+<div class="prompt output_prompt">Out[12]:</div>
 
 
 
@@ -15507,7 +15520,7 @@ JEACJEACJOCmBP4fBFhFbsNJUtoAAAAASUVORK5CYII=
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">date</span> <span class="ow">in</span> <span class="n">gigs</span><span class="o">.</span><span class="n">dates</span><span class="p">(</span><span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">):</span>
@@ -15559,7 +15572,7 @@ JEACJEACJOCmBP4fBFhFbsNJUtoAAAAASUVORK5CYII=
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">gigs</span><span class="o">.</span><span class="n">values</span><span class="p">(</span><span class="s1">&#39;venue&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">distinct</span><span class="p">()</span><span class="o">.</span><span class="n">aggregate</span><span class="p">(</span><span class="n">count</span><span class="o">=</span><span class="n">Count</span><span class="p">(</span><span class="s1">&#39;*&#39;</span><span class="p">))</span>
@@ -15574,7 +15587,7 @@ JEACJEACJOCmBP4fBFhFbsNJUtoAAAAASUVORK5CYII=
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[15]:</div>
+<div class="prompt output_prompt">Out[14]:</div>
 
 
 
@@ -15588,9 +15601,19 @@ JEACJEACJOCmBP4fBFhFbsNJUtoAAAAASUVORK5CYII=
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Render a Django template in the notebook:</p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">django.template</span> <span class="k">import</span> <span class="n">Context</span><span class="p">,</span> <span class="n">Template</span>
@@ -15604,7 +15627,7 @@ JEACJEACJOCmBP4fBFhFbsNJUtoAAAAASUVORK5CYII=
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">top_venues</span> <span class="o">=</span> <span class="p">(</span>
@@ -15647,7 +15670,7 @@ JEACJEACJOCmBP4fBFhFbsNJUtoAAAAASUVORK5CYII=
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[17]:</div>
+<div class="prompt output_prompt">Out[16]:</div>
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">

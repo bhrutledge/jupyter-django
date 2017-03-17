@@ -11,19 +11,21 @@
 # $ brew install graphviz
 # (venv)$ pip install pydot graphviz
 # ```
-# 
-# 
 
 # ## What do our models look like?
 # 
 # Let's use some of IPython's magic to find out.
+# 
+# Thanks to [`manage.py shell_plus`](https://django-extensions.readthedocs.io/en/latest/shell_plus.html), all of our models have already been imported.
 
-# Thanks to `manage.py shell_plus --notebook`, all of our models have already been imported.
+# View the source code for a model:
 
 # In[1]:
 
 get_ipython().magic('pinfo2 Gig')
 
+
+# View the whole file:
 
 # In[2]:
 
@@ -41,61 +43,60 @@ gig_file
 get_ipython().magic('pycat $gig_file')
 
 
-# In[5]:
-
-# We still need to import non-model classes...
-from core.models import PublishedModel
-get_ipython().magic('pycat {getfile(PublishedModel)}')
-
-
 # ---
+# 
+# View the contents of the app directory:
 
-# In[6]:
+# In[5]:
 
 from os import path
 
 
-# In[7]:
+# In[6]:
 
 get_ipython().system('ls -l {path.dirname(gig_file)}')
 
 
 # ---
 
-# In[8]:
+# View the output of the [`graph_models`](https://django-extensions.readthedocs.io/en/latest/graph_models.html) command from Django Extensions:
+
+# In[7]:
 
 from graphviz import Source
 from IPython.display import Image
 
 
-# In[9]:
+# In[8]:
 
-get_ipython().system('/Users/brian/Code/jahhills.com/hth/manage.py graph_models music news shows -o models.png  2>/dev/null')
+get_ipython().system('manage.py graph_models music news shows -o models.png  2>/dev/null')
 Image('models.png')
 
 
-# In[10]:
+# Alternatively, capture the output, and render it as SVG:
 
-dot = get_ipython().getoutput('/Users/brian/Code/jahhills.com/hth/manage.py graph_models shows 2>/dev/null')
+# In[9]:
+
+dot = get_ipython().getoutput('manage.py graph_models shows 2>/dev/null')
 Source(dot.n)
 
 
 # ---
 
-# To learn more about IPython's magic functions:
+# Learn more about IPython's magic functions:
 
-# In[11]:
+# In[10]:
 
 get_ipython().magic('quickref')
 
 
 # ---
-
+# 
 # ## Answering questions
 # 
 # ### How often do we play gigs?
 
-# In[12]:
+# In[11]:
 
 gigs = Gig.objects.published().past()
 gigs.count()
@@ -103,14 +104,14 @@ gigs.count()
 
 # ### Where did we play last year?
 
-# In[13]:
+# In[12]:
 
 [gig for gig in gigs.filter(date__year='2016')]
 
 
 # ### How many gigs have we played each year?
 
-# In[14]:
+# In[13]:
 
 for date in gigs.dates('date', 'year'):
     gig_count = gigs.filter(date__year=date.year).count()
@@ -119,18 +120,20 @@ for date in gigs.dates('date', 'year'):
 
 # ### What venues have we played?
 
-# In[15]:
+# In[14]:
 
 gigs.values('venue').distinct().aggregate(count=Count('*'))
 
 
-# In[16]:
+# Render a Django template in the notebook:
+
+# In[15]:
 
 from django.template import Context, Template
 from IPython.display import HTML
 
 
-# In[17]:
+# In[16]:
 
 top_venues = (
     gigs.values('venue__name', 'venue__city')

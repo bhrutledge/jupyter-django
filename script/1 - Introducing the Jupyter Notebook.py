@@ -33,6 +33,13 @@
 # * Run cell: `Shift`+`Enter`
 # * Switch to Command mode: `Esc`
 
+# In[1]:
+
+hello = 'Hello, {}!'
+who = input('Who? ')
+hello.format(who)
+
+
 # In[ ]:
 
 
@@ -42,7 +49,7 @@
 
 # [IPython](http://ipython.org/) is a powerful replacement for the standard Python shell, which spawned the IPython Notebook. Eventually, the developers extracted the language-independent features of notebook web application to create the Jupyter Notebook.  This "Big Split" occurred almost 2 years ago, but you'll still find lots of references to IPython in documentation and examples.
 # 
-# - IPython still serves as the backend (aka "kernel") for running Python code in the Notebook
+# - IPython still serves as the backend (aka "[kernel](http://jupyter.readthedocs.io/en/latest/projects/kernels.html)") for running Python code in the Notebook
 # - "Jupyter" is an amalgamation of "Julia", "Python", and "R", which were the most popular languages used with the Notebook.
 # 
 # 
@@ -57,4 +64,4 @@
 # (venv)$ /path/to/manage.py shell_plus --notebook
 # ```
 # 
-# __NOTE__: There's a [known issue](https://github.com/django-extensions/django-extensions/issues/1026) with this method for users who want to use the notebook with multiple Django projects. Fortunately, there are other methods.
+# __NOTE__: There's a [known issue](https://github.com/django-extensions/django-extensions/issues/1026) with this method for users who want to use the notebook with multiple Django projects. Hopefully there will be a fix or a documented alternative soon.
