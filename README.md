@@ -21,3 +21,8 @@ If you have questions or comments, please open an [issue](https://github.com/bhr
 - [10 Minutes to pandas](http://pandas.pydata.org/pandas-docs/stable/10min.html): A reasonable entry point into Pandas' extensive documentation
 - [Pandas: .head() to .tail()](http://pyvideo.org/pydata-chicago-2016/pandas-head-to-tail.html): Tutorial video, with links to a repo of notebooks with exercises
 - [TomAugspurger/effective-pandas](https://github.com/TomAugspurger/effective-pandas): A GitHub repo with a series of notebooks "on writing idiomatic pandas code"
+
+### Visualization
+
+- [Overview of Python Visualization Tools](http://pbpython.com/visualization-tools-1.html)
+- [A Dramatic Tour through Python’s Data Visualization Landscape](https://dansaber.wordpress.com/2016/10/02/a-dramatic-tour-through-pythons-data-visualization-landscape-including-ggplot-and-altair/)
