@@ -1,7 +1,7 @@
 
 # coding: utf-8
 
-# # Other Data Sources
+# # SQL and CSV
 
 # In[1]:
 
@@ -84,15 +84,16 @@ get_ipython().system('head song-releases.csv')
 
 # In[10]:
 
-pd.read_csv('song-releases.csv').head()
+pd.read_csv('song-releases.csv', index_col='song_id').head()
 
 
-# ## Many others
+# ## Other data sources
 # 
 # - Excel
 # - HTML tables
 # - JSON
 # - Web APIs via [requests](http://docs.python-requests.org/en/master/)
+# - [And more...](http://pandas.pydata.org/pandas-docs/stable/api.html#input-output)
 
 # In[ ]:
 

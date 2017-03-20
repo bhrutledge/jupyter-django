@@ -11922,10 +11922,29 @@ div#notebook {
 <pre><code>(venv)$ pip install django-extensions jupyter
 (venv)$ cd /path/to/notebooks
 (venv)$ /path/to/manage.py shell_plus --notebook</code></pre>
-<p><strong>NOTE</strong>: There's a <a href="https://github.com/django-extensions/django-extensions/issues/1026">known issue</a> with this method for users who want to use the notebook with multiple Django projects. Hopefully there will be a fix or a documented alternative soon.</p>
+<p>This will start the Notebook server, then open the Notebook Dashboard in your default web browser. The Dashboard lists the contents of the directory, and provides tools for starting and managing individual notebooks.</p>
+<p><img src="dashboard.png" alt="Jupyter Notebook Dashboard"></p>
+<ul>
+<li>Open an existing notebook by clicking on a <code>.ipynb</code> file</li>
+<li>Create a new notebook by selecting "Django Shell-Plus" from the "New" menu in the upper-right corner.</li>
+</ul>
+<p><strong>NOTE</strong>: There's a <a href="https://github.com/django-extensions/django-extensions/issues/1026">known issue</a> with <code>manage.py shell_plus --notebook</code> for users who want to use the Notebook with multiple Django projects. Hopefully there will be a fix or a documented alternative soon.</p>
 
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+</div>
+</div>
+</div>
+
 </div>
     </div>
   </div>

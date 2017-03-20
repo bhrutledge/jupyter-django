@@ -64,4 +64,16 @@ hello.format(who)
 # (venv)$ /path/to/manage.py shell_plus --notebook
 # ```
 # 
-# __NOTE__: There's a [known issue](https://github.com/django-extensions/django-extensions/issues/1026) with this method for users who want to use the notebook with multiple Django projects. Hopefully there will be a fix or a documented alternative soon.
+# This will start the Notebook server, then open the Notebook Dashboard in your default web browser. The Dashboard lists the contents of the directory, and provides tools for starting and managing individual notebooks.
+# 
+# ![Jupyter Notebook Dashboard](dashboard.png)
+# 
+# - Open an existing notebook by clicking on a `.ipynb` file
+# - Create a new notebook by selecting "Django Shell-Plus" from the "New" menu in the upper-right corner.
+# 
+# __NOTE__: There's a [known issue](https://github.com/django-extensions/django-extensions/issues/1026) with `manage.py shell_plus --notebook` for users who want to use the Notebook with multiple Django projects. Hopefully there will be a fix or a documented alternative soon.
+
+# In[ ]:
+
+
+
