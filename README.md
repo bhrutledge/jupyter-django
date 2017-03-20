@@ -1,8 +1,7 @@
 # Using Jupyter Notebook with Django
 
 These are the notebooks used for my presentation at the [Django Boston Meetup](https://www.meetup.com/djangoboston/events/237297349/).
-On GitHub, view any of the `.ipynb` files to see a rendered version.
-Alternatively, clone the repo, and view the contents of the `html` directory in a web browser.
+On GitHub, view any of the `.ipynb` files to see a rendered version. Alternatively, clone the repo, and view the contents of the `html` directory in a web browser. Note that running these notebooks requires a functioning clone of [my band's website](https://github.com/bhrutledge/jahhills.com), which is beyond the scope of this presentation.
 
 If you have questions or comments, please open an [issue](https://github.com/bhrutledge/jupyter-django/issues), for easier discussion. :+1:
 
